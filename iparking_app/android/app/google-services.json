@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479157121000",
+    "project_id": "iparking-359514",
+    "storage_bucket": "iparking-359514.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479157121000:android:2ec8f2b02cc0fdc93e7e5d",
+        "android_client_info": {
+          "package_name": "com.example.iparking_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479157121000-d5ntoirg9urf43prc6735kiqbq44vk87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDArQr0_NJazAKoNz19zoCUFv_G0YDOkyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479157121000-d5ntoirg9urf43prc6735kiqbq44vk87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
