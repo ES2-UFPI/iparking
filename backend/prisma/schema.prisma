@@ -8,3 +8,10 @@ datasource db {
   url                  = env("DATABASE_URL")
   referentialIntegrity = "prisma"
 }
+
+model Parking {
+  id        String @id @default(uuid())
+  name      String
+  latitude  String
+  longitude String
+}
