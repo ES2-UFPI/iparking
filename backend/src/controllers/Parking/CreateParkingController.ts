@@ -6,6 +6,8 @@ export class CreateParkingController {
     const { name, latitude, longitude } = req.body;
    
     const createdParking = await prismaClient.parking.create({data:{name, latitude, longitude}});
+  
+
     res.json(createdParking);
   }
 }
