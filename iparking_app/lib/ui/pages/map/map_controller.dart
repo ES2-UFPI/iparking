@@ -1,23 +1,51 @@
 import 'dart:async';
 
-import 'package:geolocator/geolocator.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../../data/entities/entities.dart';
+import '../../../data/routes/routes.dart';
 
 class MapController extends GetxController {
   final latitude = 0.0.obs;
   final longitude = 0.0.obs;
-
+  final estacionamentoAtual = Rx<UsuarioEstacionamentoEntity?>(null);
   late StreamSubscription<Position> positionStream;
+  RotasEstacionamento rotasEstacionamento = RotasEstacionamento();
 
-  LatLng _position = LatLng(-23.571505, -46.689104);
+  LatLng position = const LatLng(-5.090379, -42.811079);
   late GoogleMapController _mapController;
-
   get getMapController => _mapController;
-  get position => _position;
+  final markers = <Marker>{};
+  late List<UsuarioEstacionamentoEntity> listaEstacionamentos;
 
   onMapCreated(GoogleMapController gmc) async {
+    getPosition();
     _mapController = gmc;
+    listaEstacionamentos = await rotasEstacionamento.listarEstacionamentos(
+        latitude.toString(), longitude.toString());
+    for (var element in listaEstacionamentos) {
+      _addMarker(element);
+    }
+  }
+
+  _addMarker(UsuarioEstacionamentoEntity e) async {
+    markers.add(
+      Marker(
+          markerId: MarkerId(e.id),
+          position: LatLng(e.latitude, e.longitude),
+          infoWindow: InfoWindow(title: e.nome),
+          icon: await BitmapDescriptor.fromAssetImage(
+              const ImageConfiguration(), "lib/ui/assets/imgs/barreira.png"),
+          onTap: () {
+            estacionamentoAtual.value = null;
+            estacionamentoAtual.value = e;
+          }),
+    );
+    update();
   }
 
   static MapController get to => Get.find<MapController>();
