@@ -19,11 +19,15 @@ model Parking {
   price       Float
   latitude    String
   longitude   String
+  tickets     Ticket[]
 }
 
 model Ticket {
   id            String @id @default(uuid())
   user_id       String
+  parking       Parking @relation(fields: [parking_id], references: [id])
+  parking_id    String
   time_checkin  DateTime? @default(now())
   time_checkout DateTime?
+  price         Float?
 }
