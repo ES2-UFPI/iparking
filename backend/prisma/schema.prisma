@@ -20,3 +20,10 @@ model Parking {
   latitude    String
   longitude   String
 }
+
+model Ticket {
+  id            String @id @default(uuid())
+  user_id       String
+  time_checkin  DateTime? @default(now())
+  time_checkout DateTime?
+}
