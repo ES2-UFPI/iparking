@@ -3,16 +3,17 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../components/components.dart';
+import 'components/components.dart';
 import 'map_controller.dart';
 
-class MapPage extends StatefulWidget {
-  const MapPage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   late PageController _pageController;
   late MapController controller;
@@ -22,6 +23,7 @@ class _MapPageState extends State<MapPage> {
     _pageController = PageController(initialPage: _selectedIndex);
 
     controller = Get.put(MapController());
+
     super.initState();
   }
 
@@ -43,7 +45,10 @@ class _MapPageState extends State<MapPage> {
             backgroundColor: Colors.transparent,
             isScrollControlled: true,
             builder: (_) {
-              return EstacionamentoDetalhesBottomSheet(estacionamento: event);
+              return EstacionamentoDetalhesBottomSheet(
+                  estacionamento: event,
+                  selecionaEstacionamento:
+                      controller.selecionaEstacionamentoAtual);
             });
       }
     });
@@ -65,22 +70,14 @@ class _MapPageState extends State<MapPage> {
           physics: const NeverScrollableScrollPhysics(
               parent: BouncingScrollPhysics()),
           children: [
-            GetBuilder<MapController>(
-              init: controller,
-              builder: (event) {
-                return SafeArea(
-                  child: GoogleMap(
-                    scrollGesturesEnabled: true,
-                    mapType: MapType.normal,
-                    zoomControlsEnabled: true,
-                    initialCameraPosition:
-                        CameraPosition(target: controller.position, zoom: 13),
-                    onMapCreated: controller.onMapCreated,
-                    myLocationEnabled: true,
-                    markers: controller.markers,
-                  ),
-                );
-              },
+            Stack(
+              children: [
+                MapPage(controller: controller),
+                Align(
+                  alignment: const Alignment(0.0, -0.8),
+                  child: FloatEstacionamentoSelecionado(controller: controller),
+                ),
+              ],
             ),
             const MenuPage()
           ],
@@ -101,6 +98,45 @@ class _MapPageState extends State<MapPage> {
           ]),
     );
   }
+}
+
+class MapPage extends StatefulWidget {
+  const MapPage({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final MapController controller;
+
+  @override
+  State<MapPage> createState() => _MapPageState();
+}
+
+class _MapPageState extends State<MapPage> with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return GetBuilder<MapController>(
+      init: widget.controller,
+      builder: (event) {
+        return SafeArea(
+          child: GoogleMap(
+            scrollGesturesEnabled: true,
+            mapType: MapType.normal,
+            zoomControlsEnabled: true,
+            initialCameraPosition:
+                CameraPosition(target: widget.controller.position, zoom: 13),
+            onMapCreated: widget.controller.onMapCreated,
+            myLocationEnabled: true,
+            markers: widget.controller.markers,
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class MenuPage extends StatelessWidget {
@@ -148,7 +184,7 @@ class ParkinListTileOption extends StatelessWidget {
       title: Text(title),
       subtitle:
           Text(subtitle ?? "", style: Theme.of(context).textTheme.labelMedium),
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(icon),
     );
   }
 }

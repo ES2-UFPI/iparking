@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'ui/pages/map/map_page.dart';
+import 'ui/pages/pages.dart';
 import 'ui/themes/theme_light.dart';
 
 void main() => runApp(const MyApp());
@@ -14,7 +13,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: makeThemeLight(),
       initialRoute: "/map",
-      getPages: [GetPage(name: "/map", page: () => const MapPage())],
+      getPages: [
+        GetPage(name: "/map", page: () => const HomePage()),
+      ],
     );
   }
 }

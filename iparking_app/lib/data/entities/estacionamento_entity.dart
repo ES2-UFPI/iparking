@@ -1,4 +1,4 @@
-class UsuarioEstacionamentoEntity {
+class EstacionamentoEntity {
   final String id;
   final String nome;
   final String image;
@@ -9,7 +9,7 @@ class UsuarioEstacionamentoEntity {
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
 
-  UsuarioEstacionamentoEntity(
+  EstacionamentoEntity(
       {required this.id,
       required this.nome,
       required this.image,

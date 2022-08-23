@@ -12,7 +12,8 @@ import '../../../data/routes/routes.dart';
 class MapController extends GetxController {
   final latitude = 0.0.obs;
   final longitude = 0.0.obs;
-  final estacionamentoAtual = Rx<UsuarioEstacionamentoEntity?>(null);
+  final estacionamentoAtual = Rx<EstacionamentoEntity?>(null);
+  final estacionamentoSelecionado = Rx<EstacionamentoEntity?>(null);
   late StreamSubscription<Position> positionStream;
   RotasEstacionamento rotasEstacionamento = RotasEstacionamento();
 
@@ -20,7 +21,7 @@ class MapController extends GetxController {
   late GoogleMapController _mapController;
   get getMapController => _mapController;
   final markers = <Marker>{};
-  late List<UsuarioEstacionamentoEntity> listaEstacionamentos;
+  late List<EstacionamentoEntity> listaEstacionamentos;
 
   onMapCreated(GoogleMapController gmc) async {
     getPosition();
@@ -33,7 +34,7 @@ class MapController extends GetxController {
     }
   }
 
-  _addMarker(UsuarioEstacionamentoEntity e) async {
+  _addMarker(EstacionamentoEntity e) async {
     markers.add(
       Marker(
           markerId: MarkerId(e.id),
@@ -98,5 +99,9 @@ class MapController extends GetxController {
     } catch (e) {
       Get.snackbar("Erro", e.toString());
     }
+  }
+
+  void selecionaEstacionamentoAtual(EstacionamentoEntity estacionamentoEntity) {
+    estacionamentoSelecionado.value = estacionamentoEntity;
   }
 }
