@@ -10,8 +10,13 @@ datasource db {
 }
 
 model Parking {
-  id        String @id @default(uuid())
-  name      String
-  latitude  String
-  longitude String
+  id          String @id @default(uuid())
+  image_url   String
+  mail        String
+  phone       String
+  name        String
+  first_price Float
+  price       Float
+  latitude    String
+  longitude   String
 }

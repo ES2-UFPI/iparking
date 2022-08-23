@@ -3,11 +3,9 @@ import { prismaClient } from '../../database/prismaClient';
 
 export class CreateParkingController {
   async handle(req: Request, res: Response) {
-    const { name, latitude, longitude } = req.body;
-   
-    const createdParking = await prismaClient.parking.create({data:{name, latitude, longitude}});
-  
+    const { image_url, mail, phone, name, first_price, price,latitude, longitude } = req.body;
 
-    res.json(createdParking);
+    const parking = await prismaClient.parking.create({data: {image_url, mail, phone, name, first_price, price,latitude, longitude, }});
+    return res.json(parking)
   }
 }
