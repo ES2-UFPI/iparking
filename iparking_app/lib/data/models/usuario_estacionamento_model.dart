@@ -3,6 +3,7 @@ import '../entities/entities.dart';
 class UsuarioEstacionamentoModel {
   final String id;
   final String nome;
+  final String image;
   final String email;
   final String endereco;
   final double latitude;
@@ -13,6 +14,7 @@ class UsuarioEstacionamentoModel {
   UsuarioEstacionamentoModel(
       {required this.id,
       required this.nome,
+      required this.image,
       required this.email,
       required this.endereco,
       required this.latitude,
@@ -24,6 +26,7 @@ class UsuarioEstacionamentoModel {
     return UsuarioEstacionamentoModel(
         id: json['id'],
         nome: json['nome'],
+        image: json['image'],
         email: json['email'],
         endereco: json['endereco'],
         latitude: json['latitude'],
@@ -35,6 +38,7 @@ class UsuarioEstacionamentoModel {
   UsuarioEstacionamentoEntity toEntity() => UsuarioEstacionamentoEntity(
       id: id,
       nome: nome,
+      image: image,
       email: email,
       endereco: endereco,
       latitude: latitude,

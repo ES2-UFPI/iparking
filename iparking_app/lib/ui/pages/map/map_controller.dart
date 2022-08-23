@@ -25,6 +25,7 @@ class MapController extends GetxController {
   onMapCreated(GoogleMapController gmc) async {
     getPosition();
     _mapController = gmc;
+
     listaEstacionamentos = await rotasEstacionamento.listarEstacionamentos(
         latitude.toString(), longitude.toString());
     for (var element in listaEstacionamentos) {
