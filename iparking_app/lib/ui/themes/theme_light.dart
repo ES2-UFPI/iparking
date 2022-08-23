@@ -13,13 +13,13 @@ ThemeData makeThemeLight() {
   const c4 = Color(0xFFF2F2F2);
   const c5 = Color(0xFF0D0D0D);
 
-  const Color textColor = c4;
+  const Color textColor = c5;
 
   TextTheme textTheme = TextTheme(
     titleLarge: const TextStyle(
-        fontSize: 20, color: textColor, fontWeight: FontWeight.bold),
+        fontSize: 24, color: textColor, fontWeight: FontWeight.bold),
     titleMedium: const TextStyle(
-        fontSize: 16, color: textColor, fontWeight: FontWeight.w500),
+        fontSize: 22, color: textColor, fontWeight: FontWeight.w500),
     titleSmall: const TextStyle(
         fontSize: 15, color: textColor, fontWeight: FontWeight.w500),
     bodyLarge: const TextStyle(
@@ -29,9 +29,9 @@ ThemeData makeThemeLight() {
     ),
     bodyMedium: const TextStyle(fontSize: 16, color: textColor),
     bodySmall: TextStyle(
-        fontSize: 12, color: c4.withOpacity(0.7), fontStyle: FontStyle.italic),
+        fontSize: 12, color: c5.withOpacity(0.7), fontStyle: FontStyle.italic),
     labelMedium: TextStyle(
-        fontSize: 12, color: c4.withOpacity(0.7), fontStyle: FontStyle.italic),
+        fontSize: 12, color: c5.withOpacity(0.7), fontStyle: FontStyle.italic),
   );
 
   CardTheme cardTheme = const CardTheme(
@@ -53,8 +53,7 @@ ThemeData makeThemeLight() {
 
   return ThemeData(
     cardTheme: cardTheme,
-    scaffoldBackgroundColor: c3,
-    colorScheme: ColorScheme.fromSeed(seedColor: c2),
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
     elevatedButtonTheme: elevatedButtonThemeData,
     textTheme: textTheme,
     useMaterial3: true,

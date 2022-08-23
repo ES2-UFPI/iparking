@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../data/entities/entities.dart';
 
 import 'text/title_and_body.dart';
 
 class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
-  final UsuarioEstacionamentoEntity estacionamento;
+  final EstacionamentoEntity estacionamento;
+  final Function(EstacionamentoEntity estacionamentoEntity)
+      selecionaEstacionamento;
   const EstacionamentoDetalhesBottomSheet(
-      {Key? key, required this.estacionamento})
+      {Key? key,
+      required this.estacionamento,
+      required this.selecionaEstacionamento})
       : super(key: key);
 
   @override
@@ -80,7 +85,7 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                           } else {
                             throw 'Could not launch ${uri.toString()}';
                           }
-
+                          selecionaEstacionamento.call(estacionamento);
                           // para uber
                           /* var mapSchema =
                               'geo:${estacionamento.latitude},${estacionamento.longitude}';
@@ -89,6 +94,7 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                           } else {
                             throw 'Could not launch $mapSchema';
                           } */
+                          Get.back();
                         },
                         child: const Text("Reservar"),
                       ),

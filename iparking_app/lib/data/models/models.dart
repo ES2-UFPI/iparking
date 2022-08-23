@@ -1,1 +1,1 @@
-export 'usuario_estacionamento_model.dart';
+export 'estacionamento_model.dart';

@@ -32,6 +32,8 @@ dependencies:
   google_maps_flutter: ^2.1.10
   get: ^4.6.5
   url_launcher: ^6.1.5
+  qr_flutter: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

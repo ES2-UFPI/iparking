@@ -1,6 +1,6 @@
 import '../entities/entities.dart';
 
-class UsuarioEstacionamentoModel {
+class EstacionamentoModel {
   final String id;
   final String nome;
   final String image;
@@ -11,7 +11,7 @@ class UsuarioEstacionamentoModel {
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
 
-  UsuarioEstacionamentoModel(
+  EstacionamentoModel(
       {required this.id,
       required this.nome,
       required this.image,
@@ -22,8 +22,8 @@ class UsuarioEstacionamentoModel {
       required this.precoPrimeiraHora,
       required this.precoAdicionalHora});
 
-  factory UsuarioEstacionamentoModel.fromJson(Map<String, dynamic> json) {
-    return UsuarioEstacionamentoModel(
+  factory EstacionamentoModel.fromJson(Map<String, dynamic> json) {
+    return EstacionamentoModel(
         id: json['id'],
         nome: json['nome'],
         image: json['image'],
@@ -35,7 +35,7 @@ class UsuarioEstacionamentoModel {
         precoAdicionalHora: json['precoAdicionalHora']);
   }
 
-  UsuarioEstacionamentoEntity toEntity() => UsuarioEstacionamentoEntity(
+  EstacionamentoEntity toEntity() => EstacionamentoEntity(
       id: id,
       nome: nome,
       image: image,
