@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../../data/entities/entities.dart';
+
 import 'text/title_and_body.dart';
 
 class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
@@ -71,7 +72,24 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                       height: 60,
                       width: double.maxFinite,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          var uri = Uri.parse(
+                              "google.navigation:q=${estacionamento.latitude},${estacionamento.longitude}&mode=d");
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri);
+                          } else {
+                            throw 'Could not launch ${uri.toString()}';
+                          }
+
+                          // para uber
+                          /* var mapSchema =
+                              'geo:${estacionamento.latitude},${estacionamento.longitude}';
+                          if (await canLaunchUrl(Uri.parse(mapSchema))) {
+                            await launchUrl(Uri.parse(mapSchema));
+                          } else {
+                            throw 'Could not launch $mapSchema';
+                          } */
+                        },
                         child: const Text("Reservar"),
                       ),
                     ),

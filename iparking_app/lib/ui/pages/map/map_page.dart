@@ -21,18 +21,6 @@ class _MapPageState extends State<MapPage> {
   void initState() {
     _pageController = PageController(initialPage: _selectedIndex);
 
-    _pageController.addListener(() {
-      if (_pageController.page! > _selectedIndex + 0.5) {
-        setState(() {
-          _selectedIndex = _pageController.page!.ceil();
-        });
-      } else if (_pageController.page! < _selectedIndex - 0.5) {
-        setState(() {
-          _selectedIndex = _pageController.page!.floor();
-        });
-      }
-    });
-
     controller = Get.put(MapController());
     super.initState();
   }
