@@ -7,9 +7,9 @@ const themeColor4 = Color(0xFFF2F2F2);
 const themeColor5 = Color(0xFF0D0D0D);
 
 ThemeData makeThemeLight() {
-  const c1 = Color(0xFFF2A007);
-  const c2 = Color(0xFFF28705);
-  const c3 = Color(0xFF8C8070);
+  //const c1 = Color(0xFFF2A007);
+  //const c2 = Color(0xFFF28705);
+  //const c3 = Color(0xFF8C8070);
   const c4 = Color(0xFFF2F2F2);
   const c5 = Color(0xFF0D0D0D);
 
