@@ -3,7 +3,7 @@ class EstacionamentoEntity {
   final String nome;
   final String image;
   final String email;
-  final String endereco;
+  /* final String endereco; */
   final double latitude;
   final double longitude;
   final double precoPrimeiraHora;
@@ -14,7 +14,7 @@ class EstacionamentoEntity {
       required this.nome,
       required this.image,
       required this.email,
-      required this.endereco,
+      /*  required this.endereco, */
       required this.latitude,
       required this.longitude,
       required this.precoPrimeiraHora,

@@ -98,11 +98,11 @@ class ReservaPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        /* Text(
                           estacionamentoEntity.endereco,
                           style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w600),
-                        ),
+                        ), */
                         ParkingTitleAndBody(
                             title: "Primeira hora: ",
                             body:
