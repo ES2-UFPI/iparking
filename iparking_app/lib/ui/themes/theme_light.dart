@@ -45,8 +45,6 @@ ThemeData makeThemeLight() {
 
   ElevatedButtonThemeData elevatedButtonThemeData = ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-    primary: c5,
-    onPrimary: c4,
     textStyle:
         const TextStyle(color: c4, fontWeight: FontWeight.w600, fontSize: 20),
   ));
