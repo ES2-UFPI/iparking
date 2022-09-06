@@ -60,11 +60,11 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  /* Text(
                     estacionamento.endereco,
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w600),
-                  ),
+                  ), */
                   ParkingTitleAndBody(
                       title: "Primeira hora: ",
                       body: "R\$ ${estacionamento.precoPrimeiraHora}"),

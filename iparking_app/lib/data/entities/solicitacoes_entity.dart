@@ -1,14 +1,16 @@
 class SolicitacoesEntity {
-  int? id;
-  int? usuarioConvencional;
-  int? idVaga;
-  DateTime? tempoInicio;
+  String id;
+  String usuario;
+  String estacionamento;
+  DateTime tempoInicio;
   DateTime? tempoFim;
+  String? price;
 
   SolicitacoesEntity(
       {required this.id,
-      required this.usuarioConvencional,
-      required this.idVaga,
+      required this.usuario,
+      required this.estacionamento,
       required this.tempoInicio,
-      required this.tempoFim});
+      required this.tempoFim,
+      required this.price});
 }
