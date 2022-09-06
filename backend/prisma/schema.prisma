@@ -10,8 +10,24 @@ datasource db {
 }
 
 model Parking {
-  id        String @id @default(uuid())
-  name      String
-  latitude  String
-  longitude String
+  id          String   @id @default(uuid())
+  image_url   String
+  mail        String
+  phone       String
+  name        String
+  first_price Float
+  price       Float
+  latitude    String
+  longitude   String
+  tickets     Ticket[]
+}
+
+model Ticket {
+  id            String    @id @default(uuid())
+  user_id       String
+  parking       Parking   @relation(fields: [parking_id], references: [id])
+  parking_id    String
+  time_checkin  DateTime? @default(now())
+  time_checkout DateTime?
+  price         Float?
 }
