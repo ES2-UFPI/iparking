@@ -30,7 +30,7 @@ class CadastroVaga extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const Checkbox(value: this.value,
-                     onChanged: (bool value) {}
+                     onChanged: (bool value) => {},
             ),
             const SizedBox(
               height: 15,
