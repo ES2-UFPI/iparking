@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CadastroVaga extends StatelessWidget {
+  final bool? value = true;
   const CadastroVaga({Key? key}) : super(key: key);
 
   @override
@@ -29,8 +30,8 @@ class CadastroVaga extends StatelessWidget {
               "Ativo?",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
-            const Checkbox(value: this.value,
-                     onChanged: (bool value) => {},
+            Checkbox(value: this.value,
+                     onChanged: (bool? value) => {},
             ),
             const SizedBox(
               height: 15,
