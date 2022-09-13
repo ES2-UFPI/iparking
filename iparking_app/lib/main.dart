@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/map",
       getPages: [
         GetPage(name: "/map", page: () => const HomePage()),
+        GetPage(
+            name: "/parking/register", page: () => CadastroEstacionamento()),
       ],
     );
   }
