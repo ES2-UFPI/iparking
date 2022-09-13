@@ -12,7 +12,7 @@ async handle(req : Request, res: Response){
             }
         })
     
-    if (parking) return res.json(parking);
+    if (parking) {return res.json(parking)};
     return res.json({ error: "id inválido"})
 }
 
