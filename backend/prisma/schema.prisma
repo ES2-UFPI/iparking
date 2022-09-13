@@ -10,16 +10,17 @@ datasource db {
 }
 
 model Parking {
-  id          String   @id @default(uuid())
-  image_url   String
-  mail        String
-  phone       String
-  name        String
-  first_price Float
-  price       Float
-  latitude    String
-  longitude   String
-  tickets     Ticket[]
+  id             String   @id @default(uuid())
+  image_url      String
+  mail           String
+  phone          String
+  name           String
+  parking_spaces Int
+  first_price    Float
+  price          Float
+  latitude       String
+  longitude      String
+  tickets        Ticket[]
 }
 
 model Ticket {

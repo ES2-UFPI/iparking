@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { realpathSync } from 'fs';
 import { prismaClient } from '../../database/prismaClient';
 
 export class CloseTicketController{
