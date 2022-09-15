@@ -1,1 +1,1 @@
-web: npm tsc && npm start
+web: npm start
