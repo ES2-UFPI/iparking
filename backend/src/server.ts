@@ -5,7 +5,7 @@ import swaggerDocument from "./swagger.json";
 
 const app = express();
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 
 import { routes } from "./routes";
 
