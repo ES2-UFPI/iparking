@@ -43,6 +43,14 @@ class MenuPage extends StatelessWidget {
                 Get.toNamed('/parking/register');
               },
             ),
+            ParkinListTileOption(
+              title: "Login Parking",
+              subtitle: "Monitore seu estacionamento",
+              icon: Icons.local_atm_rounded,
+              onTap: () {
+                Get.toNamed('/parking');
+              },
+            ),
           ],
         ),
       ),

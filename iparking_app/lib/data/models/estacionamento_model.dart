@@ -5,7 +5,7 @@ class EstacionamentoModel {
   final String nome;
   final String image;
   final String email;
-  /*  final String endereco; */
+  final String fone;
   final double latitude;
   final double longitude;
   final double precoPrimeiraHora;
@@ -16,7 +16,7 @@ class EstacionamentoModel {
       required this.nome,
       required this.image,
       required this.email,
-      /* required this.endereco, */
+      required this.fone,
       required this.latitude,
       required this.longitude,
       required this.precoPrimeiraHora,
@@ -25,14 +25,14 @@ class EstacionamentoModel {
   factory EstacionamentoModel.fromJson(Map<String, dynamic> json) {
     return EstacionamentoModel(
         id: json['id'],
-        nome: json['nome'],
-        image: json['image'],
-        email: json['email'],
-        /* endereco: json['endereco'], */
+        nome: json['name'],
+        image: json['image_url'],
+        email: json['mail'],
+        fone: json['fone'],
         latitude: json['latitude'],
         longitude: json['longitude'],
-        precoPrimeiraHora: json['precoPrimeiraHora'],
-        precoAdicionalHora: json['precoAdicionalHora']);
+        precoPrimeiraHora: json['first_price'],
+        precoAdicionalHora: json['price']);
   }
 
   EstacionamentoEntity toEntity() => EstacionamentoEntity(
@@ -40,7 +40,6 @@ class EstacionamentoModel {
       nome: nome,
       image: image,
       email: email,
-      /* endereco: endereco, */
       latitude: latitude,
       longitude: longitude,
       precoPrimeiraHora: precoPrimeiraHora,
