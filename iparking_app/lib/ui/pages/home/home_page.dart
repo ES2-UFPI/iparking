@@ -73,6 +73,9 @@ class _HomePageState extends State<HomePage> {
             Stack(
               children: [
                 MapPage(controller: controller),
+                InputSearchParking(
+                  controller: controller,
+                ),
                 Align(
                   alignment: const Alignment(0.0, -0.8),
                   child: FloatEstacionamentoSelecionado(controller: controller),

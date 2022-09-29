@@ -14,6 +14,7 @@ class MapController extends GetxController {
   final longitude = 0.0.obs;
   final estacionamentoAtual = Rx<EstacionamentoEntity?>(null);
   final estacionamentoSelecionado = Rx<EstacionamentoEntity?>(null);
+  final isSearching = false.obs;
   late StreamSubscription<Position> positionStream;
   RotasEstacionamento rotasEstacionamento = RotasEstacionamento();
 
@@ -101,5 +102,12 @@ class MapController extends GetxController {
 
   void selecionaEstacionamentoAtual(EstacionamentoEntity estacionamentoEntity) {
     estacionamentoSelecionado.value = estacionamentoEntity;
+    isSearching.value = true;
+  }
+
+  void descelecionarEstacionamentoAtual() {
+    estacionamentoSelecionado.value = null;
+
+    isSearching.value = false;
   }
 }

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'cadastro_estacionamento_controler.dart';
+
 class CadastroEstacionamento extends StatelessWidget {
   const CadastroEstacionamento({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CadastroEstacionamentoController controller =
+        CadastroEstacionamentoController();
     return Scaffold(
         appBar: AppBar(
           title: const Text("Cadastro estacionamento"),
@@ -25,8 +29,9 @@ class CadastroEstacionamento extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                const TextField(
+                TextField(
                     obscureText: false,
+                    onChanged: controller.validadeName,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Nome do Estacionamento",
@@ -34,8 +39,9 @@ class CadastroEstacionamento extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
+                TextField(
                     obscureText: false,
+                    onChanged: controller.validadeImage,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Link da imagem",
@@ -43,8 +49,9 @@ class CadastroEstacionamento extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
+                TextField(
                     obscureText: false,
+                    onChanged: controller.validadeMail,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Email",
@@ -52,18 +59,34 @@ class CadastroEstacionamento extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Endereço",
-                        prefixIcon: Icon(Icons.house))),
+                TextField(
+                  obscureText: false,
+                  onChanged: controller.validadeLatitude,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Latitude",
+                    prefixIcon: Icon(Icons.pin_drop_rounded),
+                  ),
+                ),
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
+                TextField(
+                  obscureText: false,
+                  onChanged: controller.validadeLongitude,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Longitude",
+                    prefixIcon: Icon(Icons.pin_drop_rounded),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                TextField(
                     keyboardType: TextInputType.number,
                     obscureText: false,
+                    onChanged: controller.validadeFistPrice,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Preço da Primeira Hora",
@@ -72,20 +95,25 @@ class CadastroEstacionamento extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
+                TextField(
                     keyboardType: TextInputType.number,
                     obscureText: false,
+                    onChanged: controller.validadePrice,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Preço da Hora Adicional",
                         prefixIcon: Icon(Icons.attach_money))),
                 const SizedBox(height: 25),
-                ElevatedButton(
-                    onPressed: () {},
+                SizedBox(
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: controller.cadastrar,
                     child: const Align(
                       alignment: Alignment.center,
                       child: Text("Cadastrar"),
-                    )),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

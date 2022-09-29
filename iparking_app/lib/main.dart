@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: makeThemeLight(),
+      debugShowCheckedModeBanner: false,
       initialRoute: "/map",
       getPages: [
         GetPage(name: "/map", page: () => const HomePage()),
