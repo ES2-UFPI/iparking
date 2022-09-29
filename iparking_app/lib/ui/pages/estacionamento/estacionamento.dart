@@ -1,1 +1,1 @@
-export 'cadastro_estacionamento.dart';
+export 'cadastro/cadastro_estacionamento.dart';

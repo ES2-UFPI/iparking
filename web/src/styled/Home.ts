@@ -11,3 +11,7 @@ export const Map = styled.div`
   width: 500px;
   height: 600px;
 `;
+
+export const Parking = styled.div`
+  margin-top: -30px;
+`;

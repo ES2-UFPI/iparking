@@ -1,5 +1,6 @@
 import '../../infra/infra.dart';
 import '../entities/entities.dart';
+import '../mock/mock.dart';
 import '../models/models.dart';
 import 'routes.dart';
 
@@ -10,8 +11,15 @@ class RotasEstacionamento {
   Future<List<EstacionamentoEntity>> listarEstacionamentos(
       String latitude, String longitude) async {
     try {
-      final response =
-          await http.request(url: base_url + 'parking', method: 'get');
+      /* final response =
+          await http.request(url: base_url + 'parking', method: 'get'); */
+
+      final response = await Future.delayed(
+        Duration(milliseconds: 200),
+        () {
+          return mockListarEstacionamento();
+        },
+      );
 
       return response
           .map<EstacionamentoEntity>(
@@ -65,10 +73,11 @@ class EstacionamentoParams {
   final String image;
   final String fone;
   final String email;
-  final double latitude;
-  final double longitude;
+  final String latitude;
+  final String longitude;
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
+  final int parkingSpaces;
 
   EstacionamentoParams(
       {required this.nome,
@@ -78,7 +87,8 @@ class EstacionamentoParams {
       required this.latitude,
       required this.longitude,
       required this.precoPrimeiraHora,
-      required this.precoAdicionalHora});
+      required this.precoAdicionalHora,
+      required this.parkingSpaces});
 
   Map<String, dynamic> toJson() => {
         "name": nome,
@@ -89,5 +99,6 @@ class EstacionamentoParams {
         "price": precoAdicionalHora,
         "latitude": latitude,
         "longitude": longitude,
+        "parking_spaces": parkingSpaces
       };
 }

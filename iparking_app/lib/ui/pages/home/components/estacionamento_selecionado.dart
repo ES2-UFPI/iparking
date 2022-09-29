@@ -15,11 +15,16 @@ class FloatEstacionamentoSelecionado extends StatelessWidget {
     return StreamBuilder<EstacionamentoEntity?>(
         stream: controller.estacionamentoSelecionado.stream,
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          print(snapshot.data);
+          if (snapshot.hasData && snapshot.data != null) {
             return GestureDetector(
-              onTap: () {
-                Get.to(ReservaPage(estacionamentoEntity: snapshot.data!),
+              onTap: () async {
+                var t = await Get.to(
+                    ReservaPage(estacionamentoEntity: snapshot.data!),
                     fullscreenDialog: true);
+                if (t != null && t == "close") {
+                  controller.descelecionarEstacionamentoAtual();
+                }
               },
               child: SizedBox(
                 width: 300,

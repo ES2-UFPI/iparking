@@ -1,5 +1,5 @@
 class EstacionamentoEntity {
-  final String id;
+  late final String id;
   final String nome;
   final String image;
   final String email;

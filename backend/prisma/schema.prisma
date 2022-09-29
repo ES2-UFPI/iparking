@@ -9,10 +9,19 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
+model User {
+  id       String    @id @default(uuid())
+  name     String
+  mail     String @unique
+  password String
+  Parking  Parking[]
+}
+
 model Parking {
   id             String   @id @default(uuid())
+  manager        User     @relation(fields: [manager_id], references: [id])
+  manager_id     String
   image_url      String
-  mail           String
   phone          String
   name           String
   parking_spaces Int
@@ -24,11 +33,12 @@ model Parking {
 }
 
 model Ticket {
-  id            String    @id @default(uuid())
+  id            String   @id @default(uuid())
   user_id       String
-  parking       Parking   @relation(fields: [parking_id], references: [id])
+  parking       Parking  @relation(fields: [parking_id], references: [id])
   parking_id    String
-  time_checkin  DateTime? @default(now())
-  time_checkout DateTime?
+  time_checkin  DateTime @default(now())
+  time_checkout DateTime? 
   price         Float?
+  status        String   @default("active")
 }
