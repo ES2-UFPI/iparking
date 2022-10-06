@@ -220,10 +220,79 @@
         },
         "responses": {}
       }
+    },
+    "/users": {
+      "post": {
+        "sumary": "Cadastro de usuario",
+        "description": "Esta rota é responsável por cadastrar um novo usuario",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                  "value": {                    
+                    "mail": "myemailexample@mail.com",
+                    "name": "claudio jaime",
+                    "password": "66515321",
+                    "confirmePassword": "66515321"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+      "put": {
+        "sumary": "atualizacao de usuario",
+        "description": "Esta rota é responsável por atualizar um novo usuario",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                  "value": {                    
+                    "mail": "myemailexample@mail.com",
+                    "name": "claudio jaime",
+                    "password": "66515321"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+
     }
   },
   "components": {
     "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {         
+          "mail": {
+            "type": "string"
+          },     
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "Parking": {
+            "type": "object"
+          }
+        }
+      },
       "Parking": {
         "type": "object",
         "properties": {
