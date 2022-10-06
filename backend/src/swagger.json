@@ -50,6 +50,175 @@
           }
         },
         "responses": {}
+      }, 
+      "get": {
+        "sumary": "busca de estacionamento",
+        "descrition": "esta rota é responsavel por buscar todos estacionamentos",
+        "tags": ["Parking"],
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref":"#/components/schemas/Parking"
+              },
+              "examples": {
+                "Parking": {
+                  "value": {                    
+                  }                  
+                }
+              }             
+            }
+          }
+        }
+      }
+      
+    },
+    "/parking/{id}":{
+      "delete":{
+        "sumary": "deletar um estacionamento",
+        "descrition": "esta rota é responsavel por deletar algum estacionamentos",
+        "tags": ["Parking"],
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref":"#/components/schemas/Parking"
+              },
+              "examples": {
+                "Parking": {
+                  "value": {                    
+                  }                  
+                }
+              }             
+            }
+          }
+        }
+
+      },
+      "put": {
+        "sumary": "busca de estacionamento",
+        "descrition": "esta rota é responsavel por buscar todos estacionamentos",
+        "tags": ["Parking"],
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref":"#/components/schemas/Parking"
+              },
+              "examples": {
+                "Parking": {
+                  "value": { 
+                    "value": {
+                      "image_url": "https://api.unsplash.com/photos/random",
+                      "mail": "myemailexample@mail.com",
+                      "phone": "999999999",
+                      "name": "Le Guard",
+                      "parking_spaces": 20,
+                      "first_price": 5.99,
+                      "price": 5,
+                      "atitude": "54548965",
+                      "longitude": "66515321"
+                    }                   
+                  }                  
+                }
+              }             
+            }
+          }
+        }
+      }
+    },
+    "/ticket": {
+      "post": {
+        "sumary": "Cadastro de ticket",
+        "description": "Esta rota é responsável por cadastrar um novo ticket",
+        "tags": ["Ticket"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              },
+              "examples": {
+                "Ticket": {
+                  "value": {
+                    "user_id":"2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+                    "parking_id": "f040d012-c308-4181-b037-e91746c1e98a"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+      "put": {
+        "sumary": "Cadastro de ticket",
+        "description": "Esta rota é responsável por cadastrar um novo ticket",
+        "tags": ["Ticket"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              },
+              "examples": {
+                "Ticket": {
+                  "value": {
+                    "user_id":"2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+                    "parking_id": "f040d012-c308-4181-b037-e91746c1e98a"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+      "get":{
+        "sumary": "Cadastro de ticket",
+        "description": "Esta rota é responsável por cadastrar um novo ticket",
+        "tags": ["Ticket"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              },
+              "examples": {
+                "Ticket": {
+                  "value": {
+                    "user_id":"2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+                    "parking_id": "f040d012-c308-4181-b037-e91746c1e98a"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+      "delete":{
+        "sumary": "Cadastro de ticket",
+        "description": "Esta rota é responsável por cadastrar um novo ticket",
+        "tags": ["Ticket"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              },
+              "examples": {
+                "Ticket": {
+                  "value": {
+                    "user_id":"2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+                    "parking_id": "f040d012-c308-4181-b037-e91746c1e98a"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
       }
     }
   },
@@ -70,7 +239,7 @@
           "name": {
             "type": "string"
           },
-          "parking_spaces," : {
+          "parking_spaces" : {
             "type": "number"
           },
           "first_price": {
@@ -83,6 +252,32 @@
             "type": "string"
           },
           "longitude": {
+            "type": "string"
+          }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "parking": {
+            "type": "object"
+          },
+          "parking_id": {
+            "type": "string"
+          },
+          "time_checkin": {
+            "type": "datetime"
+          },
+          "time_checkout" : {
+            "type": "datatime"
+          },
+          "price": {
+            "type": "number"
+          },
+          "status": {
             "type": "string"
           }
         }

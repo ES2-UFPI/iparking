@@ -24,7 +24,6 @@ routes.put("/parking/:id", new UpdateParkingController().handle);
 
 routes.post("/ticket", new CreateTicketController().handle);
 routes.get("/ticket", new GetTicketController().handle);
-routes.get("/ticket/:id", new GetTicketController().handle);
 routes.delete("/ticket/:id", new DeleteTicketController().handle);
 routes.put("/ticket/:id", new CloseTicketController().handle);
 
