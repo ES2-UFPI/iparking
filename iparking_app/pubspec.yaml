@@ -34,6 +34,8 @@ dependencies:
   url_launcher: ^6.1.5
   qr_flutter: ^4.0.0
   http: ^0.13.5
+  checkmark: ^0.0.2+1
+  pix_flutter: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +50,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/ui/assets/imgs/barreira.png
+    - lib/ui/assets/imgs/logo-pix-icone-256.png
+    - lib/ui/assets/imgs/atm.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
