@@ -1,7 +1,3 @@
-import 'dart:math';
-
-import 'package:get/get.dart';
-
 class TesteValidadeInformacoes{
   String? num_cartao_de_credito;
   String? cvv;
