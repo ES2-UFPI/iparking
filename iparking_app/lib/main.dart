@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iparking_app/ui/pages/pagamento/pagamento_main.dart';
 import 'ui/pages/pages.dart';
 import 'ui/themes/theme_light.dart';
 
@@ -11,12 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const RealizarPagamento(),
+    return GetMaterialApp(
+      theme: makeThemeLight(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: "/map",
+      getPages: [
+        GetPage(name: "/map", page: () => const HomePage()),
+        GetPage(
+            name: "/parking/register", page: () => CadastroEstacionamento()),
+      ],
     );
   }
 }
