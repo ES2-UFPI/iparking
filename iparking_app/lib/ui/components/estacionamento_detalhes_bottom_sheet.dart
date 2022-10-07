@@ -9,10 +9,12 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
   final EstacionamentoEntity estacionamento;
   final Function(EstacionamentoEntity estacionamentoEntity)
       selecionaEstacionamento;
+  final Function caadastrarTicket;
   const EstacionamentoDetalhesBottomSheet(
       {Key? key,
       required this.estacionamento,
-      required this.selecionaEstacionamento})
+      required this.selecionaEstacionamento,
+      required this.caadastrarTicket})
       : super(key: key);
 
   @override
@@ -60,11 +62,16 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /* Text(
-                    estacionamento.endereco,
+                  Text(
+                    estacionamento.email,
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w600),
-                  ), */
+                  ),
+                  Text(
+                    estacionamento.fone,
+                    style: const TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w600),
+                  ),
                   ParkingTitleAndBody(
                       title: "Primeira hora: ",
                       body: "R\$ ${estacionamento.precoPrimeiraHora}"),
@@ -78,6 +85,7 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                       width: double.maxFinite,
                       child: ElevatedButton(
                         onPressed: () async {
+                          caadastrarTicket();
                           var uri = Uri.parse(
                               "google.navigation:q=${estacionamento.latitude},${estacionamento.longitude}&mode=d");
                           if (await canLaunchUrl(uri)) {
@@ -89,7 +97,7 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                           // para uber
                           /* var mapSchema =
                               'geo:${estacionamento.latitude},${estacionamento.longitude}';
-                          if (await canLaunchUrl(Uri.parse(mapSchema))) {
+                          if (await canLaunchUrl(UrRi.parse(mapSchema))) {
                             await launchUrl(Uri.parse(mapSchema));
                           } else {
                             throw 'Could not launch $mapSchema';

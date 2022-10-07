@@ -10,24 +10,20 @@ class RotasEstacionamento {
 
   Future<List<EstacionamentoEntity>> listarEstacionamentos(
       String latitude, String longitude) async {
-    try {
-      final response =
-          await http.request(url: base_url + 'parking', method: 'get');
+    final response =
+        await http.request(url: base_url + 'parking', method: 'get');
 
-      /* final response = await Future.delayed(
+    /* final response = await Future.delayed(
         Duration(milliseconds: 200),
         () {
           return mockListarEstacionamento();
         },
       ); */
 
-      return response
-          .map<EstacionamentoEntity>(
-              (e) => EstacionamentoModel.fromJson(e).toEntity())
-          .toList();
-    } catch (error) {
-      rethrow;
-    }
+    return response
+        .map<EstacionamentoEntity>(
+            (e) => EstacionamentoModel.fromJson(e).toEntity())
+        .toList();
   }
 
   Future<EstacionamentoEntity> cadastrarEstacionameto(

@@ -46,9 +46,11 @@ class _HomePageState extends State<HomePage> {
             isScrollControlled: true,
             builder: (_) {
               return EstacionamentoDetalhesBottomSheet(
-                  estacionamento: event,
-                  selecionaEstacionamento:
-                      controller.selecionaEstacionamentoAtual);
+                estacionamento: event,
+                selecionaEstacionamento:
+                    controller.selecionaEstacionamentoAtual,
+                caadastrarTicket: controller.cadastrarTicket,
+              );
             });
       }
     });

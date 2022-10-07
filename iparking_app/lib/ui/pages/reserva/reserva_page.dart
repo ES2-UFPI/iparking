@@ -8,7 +8,11 @@ import '../../components/text/text.dart';
 
 class ReservaPage extends StatelessWidget {
   final EstacionamentoEntity estacionamentoEntity;
-  const ReservaPage({Key? key, required this.estacionamentoEntity})
+  final SolicitacoesEntity solicitacoesEntity;
+  const ReservaPage(
+      {Key? key,
+      required this.estacionamentoEntity,
+      required this.solicitacoesEntity})
       : super(key: key);
 
   @override
