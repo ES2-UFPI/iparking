@@ -12,10 +12,10 @@ export class CreateUserController {
             }
         });
 
-    if (userExists) res.json({message: "User e-mail already exists!"})
+    if (userExists) return res.json({message: "User e-mail already exists!"})
 
-    if(password !== confirmPassword) res.json({message: "Password does not match!"})
-
+    if(password !== confirmPassword) return res.json({message: "Password does not match!"})
+    
 
     const user = await prismaClient.user.create({data: { name, mail, password }});
 
