@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iparking_app/ui/pages/pagamento/pagamento_confirmacacao.dart';
-import 'package:pix_flutter/pix_flutter.dart';
 import 'package:flutter/services.dart';
 
 class PagamentoPix extends StatelessWidget {

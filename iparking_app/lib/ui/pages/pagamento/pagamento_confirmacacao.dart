@@ -1,4 +1,3 @@
-import 'package:checkmark/checkmark.dart';
 import 'package:flutter/material.dart';
 import 'package:iparking_app/ui/pages/pagamento/pagamento_finalizado.dart';
 
