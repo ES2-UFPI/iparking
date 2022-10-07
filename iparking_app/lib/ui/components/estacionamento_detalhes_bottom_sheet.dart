@@ -72,6 +72,11 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w600),
                   ),
+                  Text(
+                    estacionamento.parkingSpaces.toString(),
+                    style: const TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w600),
+                  ),
                   ParkingTitleAndBody(
                       title: "Primeira hora: ",
                       body: "R\$ ${estacionamento.precoPrimeiraHora}"),
@@ -85,7 +90,7 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
                       width: double.maxFinite,
                       child: ElevatedButton(
                         onPressed: () async {
-                          caadastrarTicket();
+                          await caadastrarTicket();
                           var uri = Uri.parse(
                               "google.navigation:q=${estacionamento.latitude},${estacionamento.longitude}&mode=d");
                           if (await canLaunchUrl(uri)) {

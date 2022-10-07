@@ -114,8 +114,11 @@ class MapController extends GetxController {
   }
 
   Future<void> cadastrarTicket() async {
-    print(estacionamentoAtual.value!.id);
     solicitacaoAtual.value = await rotasSolicitacoes.cadastrarSolicitacao(
         SolicitacaoParams(parkingId: estacionamentoAtual.value!.id));
+  }
+
+  Future<void> reloadEstacionamento() async {
+    onMapCreated(_mapController);
   }
 }

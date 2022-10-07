@@ -52,8 +52,8 @@ class CadastroEstacionamentoController extends GetxController {
     this.parkingSpaces = value;
   }
 
-  void cadastrar() {
-    estacionamento.cadastrarEstacionameto(EstacionamentoParams(
+  Future<void> cadastrar() async {
+    await estacionamento.cadastrarEstacionameto(EstacionamentoParams(
         nome: name,
         image: imageUrl,
         fone: phone,

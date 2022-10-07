@@ -5,6 +5,7 @@ class EstacionamentoEntity {
   final String email;
   final String fone;
   final String latitude;
+  final int parkingSpaces;
   final String longitude;
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
@@ -18,5 +19,6 @@ class EstacionamentoEntity {
       required this.latitude,
       required this.longitude,
       required this.precoPrimeiraHora,
+      required this.parkingSpaces,
       required this.precoAdicionalHora});
 }
