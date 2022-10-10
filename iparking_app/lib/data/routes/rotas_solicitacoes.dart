@@ -25,25 +25,18 @@ class RotasSolicitacoes {
   Future<SolicitacoesEntity> cadastrarSolicitacao(
       SolicitacaoParams params) async {
     final body = params.toJson();
-    try {
-      final response = await http.request(
-          url: base_url + 'parking', method: 'post', body: body);
 
-      return SolicitacoesModel.fromJson(response).toEntity();
-    } catch (error) {
-      rethrow;
-    }
+    final response = await http.request(
+        url: base_url + 'ticket', method: 'post', body: body);
+
+    return SolicitacoesModel.fromJson(response).toEntity();
   }
 
   Future<SolicitacoesEntity> SolicitacaoEspecifico(String id) async {
-    try {
-      final response =
-          await http.request(url: base_url + 'parking/${id}', method: 'get');
+    final response =
+        await http.request(url: base_url + 'parking/${id}', method: 'get');
 
-      return SolicitacoesModel.fromJson(response).toEntity();
-    } catch (error) {
-      rethrow;
-    }
+    return SolicitacoesModel.fromJson(response).toEntity();
   }
 
   /* Future<SolicitacoesEntity> atualizarSolicitacao(
@@ -61,15 +54,12 @@ class RotasSolicitacoes {
 }
 
 class SolicitacaoParams {
-  final String userId;
   final String parkingId;
-  final String timeCheckin;
 
-  SolicitacaoParams(
-      {required this.userId,
-      required this.parkingId,
-      required this.timeCheckin});
+  SolicitacaoParams({required this.parkingId});
 
-  Map<String, dynamic> toJson() =>
-      {"user_id": userId, "parking_id": parkingId, "time_checkin": timeCheckin};
+  Map<String, dynamic> toJson() => {
+        "user_id": "2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+        "parking_id": parkingId,
+      };
 }

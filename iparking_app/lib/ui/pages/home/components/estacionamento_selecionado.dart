@@ -20,7 +20,10 @@ class FloatEstacionamentoSelecionado extends StatelessWidget {
             return GestureDetector(
               onTap: () async {
                 var t = await Get.to(
-                    ReservaPage(estacionamentoEntity: snapshot.data!),
+                    ReservaPage(
+                      estacionamentoEntity: snapshot.data!,
+                      solicitacoesEntity: controller.solicitacaoAtual.value!,
+                    ),
                     fullscreenDialog: true);
                 if (t != null && t == "close") {
                   controller.descelecionarEstacionamentoAtual();

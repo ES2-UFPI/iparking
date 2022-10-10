@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../map_controller.dart';
+
 class MenuPage extends StatelessWidget {
-  const MenuPage({
-    Key? key,
-  }) : super(key: key);
+  final MapController controller;
+  const MenuPage({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,9 @@ class MenuPage extends StatelessWidget {
               subtitle:
                   "Cadastre seu estacionamento e aproveite recursos especiais",
               icon: Icons.local_parking_rounded,
-              onTap: () {
-                Get.toNamed('/parking/register');
+              onTap: () async {
+                await Get.toNamed('/parking/register');
+                controller.reloadEstacionamento();
               },
             ),
             ParkinListTileOption(
