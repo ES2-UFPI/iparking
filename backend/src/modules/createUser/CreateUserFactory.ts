@@ -1,6 +1,9 @@
+import { UsersRepositoryInMemory } from "../../repositories/in-memory/UsersRepositoryInMemory";
 import { PrismaUsersRepository } from "../../repositories/prisma/PrismaUsersRepository";
 import { CreateUserController } from "./CreateUserController";
 import { CreateUserService } from "./CreateUserService";
+
+
 
 export const createUserFactory = () => {
   const usersRepository = new PrismaUsersRepository();

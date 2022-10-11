@@ -16,6 +16,7 @@ model User {
   password String
   Parking  Parking[]
   Tickets  Ticket[]
+  active   Boolean? @default(false)
 }
 
 model Parking {
