@@ -13,11 +13,16 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: makeThemeLight(),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/map",
+      initialRoute: "/flow",
       getPages: [
+        GetPage(name: '/flow', page: () => const FlowPage()),
         GetPage(name: "/map", page: () => const HomePage()),
         GetPage(
             name: "/parking/register", page: () => CadastroEstacionamento()),
+        GetPage(
+            name: "/estacionamento/home",
+            page: () => const HomeEstacionamentoPage()),
+        GetPage(name: "/estacionamento/qrscan", page: () => const QRViewPage()),
       ],
     );
   }
