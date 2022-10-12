@@ -1,11 +1,12 @@
 class EstacionamentoEntity {
-  late final String id;
+  final String id;
   final String nome;
   final String image;
   final String email;
-  /* final String endereco; */
-  final double latitude;
-  final double longitude;
+  final String fone;
+  final String latitude;
+  final int parkingSpaces;
+  final String longitude;
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
 
@@ -14,9 +15,10 @@ class EstacionamentoEntity {
       required this.nome,
       required this.image,
       required this.email,
-      /*  required this.endereco, */
+      required this.fone,
       required this.latitude,
       required this.longitude,
       required this.precoPrimeiraHora,
+      required this.parkingSpaces,
       required this.precoAdicionalHora});
 }

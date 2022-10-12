@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
 import 'cadastro_estacionamento_controler.dart';
 
@@ -107,7 +109,18 @@ class CadastroEstacionamento extends StatelessWidget {
                 SizedBox(
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: controller.cadastrar,
+                    onPressed: () async {
+                      await controller.cadastrar();
+                      Fluttertoast.showToast(
+                          msg: "Cadastrado com sucesso",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.green[800],
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                      Get.back();
+                    },
                     child: const Align(
                       alignment: Alignment.center,
                       child: Text("Cadastrar"),

@@ -46,9 +46,11 @@ class _HomePageState extends State<HomePage> {
             isScrollControlled: true,
             builder: (_) {
               return EstacionamentoDetalhesBottomSheet(
-                  estacionamento: event,
-                  selecionaEstacionamento:
-                      controller.selecionaEstacionamentoAtual);
+                estacionamento: event,
+                selecionaEstacionamento:
+                    controller.selecionaEstacionamentoAtual,
+                caadastrarTicket: controller.cadastrarTicket,
+              );
             });
       }
     });
@@ -59,6 +61,9 @@ class _HomePageState extends State<HomePage> {
     _selectedIndex = index;
     _pageController.animateToPage(index,
         duration: const Duration(milliseconds: 500), curve: Curves.ease);
+    if (index == _selectedIndex) {
+      controller.reloadEstacionamento();
+    }
   }
 
   @override
@@ -82,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const MenuPage()
+            MenuPage(controller: controller)
           ],
         );
       }),

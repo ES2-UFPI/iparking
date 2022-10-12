@@ -4,8 +4,8 @@ class SolicitacoesModel {
   String id;
   String usuario;
   String estacionamento;
-  DateTime tempoInicio;
-  DateTime? tempoFim;
+  String tempoInicio;
+  String? tempoFim;
   String? price;
 
   SolicitacoesModel(

@@ -14,9 +14,11 @@ class MapController extends GetxController {
   final longitude = 0.0.obs;
   final estacionamentoAtual = Rx<EstacionamentoEntity?>(null);
   final estacionamentoSelecionado = Rx<EstacionamentoEntity?>(null);
+  final solicitacaoAtual = Rx<SolicitacoesEntity?>(null);
   final isSearching = false.obs;
   late StreamSubscription<Position> positionStream;
   RotasEstacionamento rotasEstacionamento = RotasEstacionamento();
+  RotasSolicitacoes rotasSolicitacoes = RotasSolicitacoes();
 
   LatLng position = const LatLng(-5.090379, -42.811079);
   late GoogleMapController _mapController;
@@ -39,7 +41,7 @@ class MapController extends GetxController {
     markers.add(
       Marker(
           markerId: MarkerId(e.id),
-          position: LatLng(e.latitude, e.longitude),
+          position: LatLng(double.parse(e.latitude), double.parse(e.longitude)),
           infoWindow: InfoWindow(title: e.nome),
           icon: await BitmapDescriptor.fromAssetImage(
               const ImageConfiguration(), "lib/ui/assets/imgs/barreira.png"),
@@ -109,5 +111,14 @@ class MapController extends GetxController {
     estacionamentoSelecionado.value = null;
 
     isSearching.value = false;
+  }
+
+  Future<void> cadastrarTicket() async {
+    solicitacaoAtual.value = await rotasSolicitacoes.cadastrarSolicitacao(
+        SolicitacaoParams(parkingId: estacionamentoAtual.value!.id));
+  }
+
+  Future<void> reloadEstacionamento() async {
+    onMapCreated(_mapController);
   }
 }

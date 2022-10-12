@@ -8,7 +8,11 @@ import '../../components/text/text.dart';
 
 class ReservaPage extends StatelessWidget {
   final EstacionamentoEntity estacionamentoEntity;
-  const ReservaPage({Key? key, required this.estacionamentoEntity})
+  final SolicitacoesEntity solicitacoesEntity;
+  const ReservaPage(
+      {Key? key,
+      required this.estacionamentoEntity,
+      required this.solicitacoesEntity})
       : super(key: key);
 
   @override
@@ -39,7 +43,7 @@ class ReservaPage extends StatelessWidget {
               const SizedBox(height: 30),
               const Text("Na saída, apresente este QrCode!"),
               QrImage(
-                data: "1234567890",
+                data: solicitacoesEntity.id,
                 version: QrVersions.auto,
                 size: 200.0,
               ),
@@ -50,8 +54,17 @@ class ReservaPage extends StatelessWidget {
                 child: Text("Estadia",
                     style: Theme.of(context).textTheme.titleLarge),
               ),
+              solicitacoesEntity.price != null
+                  ? ParkingTitleAndBody(
+                      title: "Valor da estadia: ",
+                      body: solicitacoesEntity.price!)
+                  : SizedBox(),
               ParkingTitleAndBody(
-                  title: "Inicio: ", body: DateTime.now().toString()),
+                  title: "Inicio: ", body: solicitacoesEntity.tempoInicio),
+              solicitacoesEntity.tempoFim != null
+                  ? ParkingTitleAndBody(
+                      title: "Fim: ", body: solicitacoesEntity.tempoFim!)
+                  : SizedBox(),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 30),
                 child: Divider(thickness: 6),
