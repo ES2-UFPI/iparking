@@ -10,6 +10,7 @@ import { CloseTicketController } from "./controllers/Ticket/CloseTicketControlle
 import { CreateTicketController } from "./controllers/Ticket/CreateTicketController";
 import { DeleteTicketController } from "./controllers/Ticket/DeleteTicketController";
 import { GetTicketController } from "./controllers/Ticket/GetTicketController";
+import { createUserFactory } from "./modules/createUser/CreateUserFactory";
 
 routes.get("/",(req: Request, res: Response) => {
     return res.json({ message: "Iparking API, for more info please access https://github.com/ES2-UFPI/iparking" })
@@ -25,5 +26,7 @@ routes.get("/ticket", new GetTicketController().handle);
 routes.get("/ticket/:id", new GetTicketController().handle);
 routes.delete("/ticket/:id", new DeleteTicketController().handle);
 routes.put("/ticket/:id", new CloseTicketController().handle);
+
+routes.post('/users', (request, response ) => createUserFactory().handle(request, response))
     
 export  {routes};
