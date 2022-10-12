@@ -6,8 +6,9 @@ class EstacionamentoModel {
   final String image;
   final String email;
   final String fone;
-  final double latitude;
-  final double longitude;
+  final String latitude;
+  final String longitude;
+  final int parkingSpaces;
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
 
@@ -19,6 +20,7 @@ class EstacionamentoModel {
       required this.fone,
       required this.latitude,
       required this.longitude,
+      required this.parkingSpaces,
       required this.precoPrimeiraHora,
       required this.precoAdicionalHora});
 
@@ -28,11 +30,12 @@ class EstacionamentoModel {
         nome: json['name'],
         image: json['image_url'],
         email: json['mail'],
-        fone: json['fone'],
+        fone: json['phone'],
+        parkingSpaces: json["parking_spaces"],
         latitude: json['latitude'],
         longitude: json['longitude'],
-        precoPrimeiraHora: json['first_price'],
-        precoAdicionalHora: json['price']);
+        precoPrimeiraHora: double.parse(json['first_price'].toString()),
+        precoAdicionalHora: double.parse(json['price'].toString()));
   }
 
   EstacionamentoEntity toEntity() => EstacionamentoEntity(
@@ -40,8 +43,10 @@ class EstacionamentoModel {
       nome: nome,
       image: image,
       email: email,
+      fone: fone,
       latitude: latitude,
       longitude: longitude,
+      parkingSpaces: parkingSpaces,
       precoPrimeiraHora: precoPrimeiraHora,
       precoAdicionalHora: precoAdicionalHora);
 }

@@ -18,18 +18,19 @@ model User {
 }
 
 model Parking {
-  id             String   @id @default(uuid())
-  manager        User     @relation(fields: [manager_id], references: [id])
-  manager_id     String
-  image_url      String
-  phone          String
-  name           String
-  parking_spaces Int
-  first_price    Float
-  price          Float
-  latitude       String
-  longitude      String
-  tickets        Ticket[]
+  id               String   @id @default(uuid())
+  manager          User     @relation(fields: [manager_id], references: [id])
+  manager_id       String
+  image_url        String
+  phone            String
+  name             String
+  parking_spaces   Int
+  parking_reserved Int
+  first_price      Float
+  price            Float
+  latitude         String
+  longitude        String
+  tickets          Ticket[]
 }
 
 model Ticket {

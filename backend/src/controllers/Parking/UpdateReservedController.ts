@@ -2,15 +2,15 @@ import { prismaClient } from "../../database/prismaClient";
 
 import { Request, Response } from "express";
 
-export class UpdateParkingController {
+export class UpdateReservedController {
 
   async handle(req: Request, res: Response) {
 
     const { id } = req.params;
-    const { name, phone, mail, parking_reserved, first_price, price, image_url } = req.body;
+    const { parking_reserved } = req.body;
     const updatedParking = await prismaClient.parking.update({
       where: { id },
-      data: { name, phone, mail, parking_reserved, first_price, price, image_url }
+      data: { parking_reserved }
     });
     res.json(updatedParking);
   }
