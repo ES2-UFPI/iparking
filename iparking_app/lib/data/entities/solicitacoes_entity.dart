@@ -1,6 +1,6 @@
 class SolicitacoesEntity {
   String id;
-  String usuario;
+  String? usuario;
   String estacionamento;
   String tempoInicio;
   String? tempoFim;

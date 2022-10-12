@@ -32,25 +32,12 @@ class RotasSolicitacoes {
     return SolicitacoesModel.fromJson(response).toEntity();
   }
 
-  Future<SolicitacoesEntity> SolicitacaoEspecifico(String id) async {
+  Future<SolicitacoesEntity> solicitacaoEspecifico(String id) async {
     final response =
         await http.request(url: base_url + 'parking/${id}', method: 'get');
 
     return SolicitacoesModel.fromJson(response).toEntity();
   }
-
-  /* Future<SolicitacoesEntity> atualizarSolicitacao(
-      EstacionamentoParams params, String id) async {
-    final body = params.toJson();
-    try {
-      final response = await http.request(
-          url: base_url + 'parking/${id}', method: 'put', body: body);
-
-      return SolicitacoesModel.fromJson(response).toEntity();
-    } catch (error) {
-      rethrow;
-    }
-  } */
 }
 
 class SolicitacaoParams {
