@@ -6,7 +6,7 @@ import { CreateUserService } from "./CreateUserService";
 
 
 export const createUserFactory = () => {
-  const usersRepository = new PrismaUsersRepository();
+  const usersRepository = new UsersRepositoryInMemory();
   const createUser = new CreateUserService(usersRepository);
   const createUserController = new CreateUserController(createUser);
   return createUserController;
