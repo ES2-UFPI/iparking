@@ -9,8 +9,8 @@ const themeColor5 = Color(0xFF0D0D0D);
 ThemeData makeThemeLight() {
   //const c1 = Color(0xFFF2A007);
   //const c2 = Color(0xFFF28705);
-  const c3 = Color(0xFF8C8070);
-  const c4 = Color(0xFFF2F2F2);
+  /* const c3 = Color(0xFF8C8070);
+  const c4 = Color(0xFFF2F2F2); */
   const c5 = Color(0xFF0D0D0D);
 
   const Color textColor = c5;
@@ -34,25 +34,25 @@ ThemeData makeThemeLight() {
         fontSize: 12, color: c5.withOpacity(0.7), fontStyle: FontStyle.italic),
   );
 
-  CardTheme cardTheme = const CardTheme(
+  /* CardTheme cardTheme = const CardTheme(
     color: c3,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(24),
       ),
     ),
-  );
+  ); */
 
-  ElevatedButtonThemeData elevatedButtonThemeData = ElevatedButtonThemeData(
+  /* ElevatedButtonThemeData elevatedButtonThemeData = ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
     textStyle:
         const TextStyle(color: c4, fontWeight: FontWeight.w600, fontSize: 20),
-  ));
+  )); */
 
   return ThemeData(
-    cardTheme: cardTheme,
+    //cardTheme: cardTheme,
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-    elevatedButtonTheme: elevatedButtonThemeData,
+    //elevatedButtonTheme: elevatedButtonThemeData,
     textTheme: textTheme,
     useMaterial3: true,
   );

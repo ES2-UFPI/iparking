@@ -2,7 +2,7 @@ import '../entities/entities.dart';
 
 class SolicitacoesModel {
   String id;
-  String usuario;
+  String? usuario;
   String estacionamento;
   String tempoInicio;
   String? tempoFim;
