@@ -1,5 +1,6 @@
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/IUsersRepositories";
+import { sendMail } from "../sendMail/SendMailService";
 
 interface IUserRequest {
   name: string;
@@ -14,11 +15,12 @@ class CreateUserService {
     const userAlreadyExists = await this.usersRepository.exists(mail);
 
     if (userAlreadyExists) {
-      throw new Error("User already exists!");
+      return( {message:"User already exists!"});
     }
-
+    
     const userCreate = User.create({ name, mail, password });
     const user = await this.usersRepository.create(userCreate);
+    sendMail(user)
     return user;
   }
 }

@@ -10,6 +10,7 @@ import { CloseTicketController } from "./controllers/Ticket/CloseTicketControlle
 import { CreateTicketController } from "./controllers/Ticket/CreateTicketController";
 import { DeleteTicketController } from "./controllers/Ticket/DeleteTicketController";
 import { GetTicketController } from "./controllers/Ticket/GetTicketController";
+import { activateUserController } from "./modules/createUser/activateUserController";
 import { createUserFactory } from "./modules/createUser/CreateUserFactory";
 
 routes.get("/",(req: Request, res: Response) => {
@@ -28,5 +29,7 @@ routes.delete("/ticket/:id", new DeleteTicketController().handle);
 routes.put("/ticket/:id", new CloseTicketController().handle);
 
 routes.post('/users', (request, response ) => createUserFactory().handle(request, response))
+
+routes.put('/users/activate/:id', (request, response ) => new activateUserController().handle(request, response))
     
 export  {routes};

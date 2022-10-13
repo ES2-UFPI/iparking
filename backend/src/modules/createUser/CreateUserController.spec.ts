@@ -1,6 +1,4 @@
-/**
- * @jest-environment ./prisma/prisma-environment-jest
- */
+
 
  import { app } from "../../server";
  import request from "supertest";
