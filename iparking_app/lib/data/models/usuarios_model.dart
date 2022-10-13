@@ -1,11 +1,10 @@
 import '../entities/entities.dart';
-import 'models.dart';
 
 class UsuariosModel {
   String? id;
   String? nome;
   String? email;
-  List<EstacionamentoEntity?> estacionamentos;
+  List<EstacionamentoEntity?>? estacionamentos;
   UsuariosModel(
       {required this.id,
       required this.nome,
@@ -15,12 +14,9 @@ class UsuariosModel {
   factory UsuariosModel.fromJson(Map<String, dynamic> json) {
     return UsuariosModel(
         id: json['id'],
-        nome: json['nome'],
+        nome: json['name'],
         email: json['mail'],
-        estacionamentos: json['parking']
-            .toMap<EstacionamentoEntity>(
-                (e) => EstacionamentoModel.fromJson(e).toEntity())
-            .toList());
+        estacionamentos: null);
   }
 
   UsuarioEntity toEntity() => UsuarioEntity(

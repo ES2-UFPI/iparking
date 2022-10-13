@@ -62,11 +62,11 @@ class EstacionamentoDetalhesBottomSheet extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                 /*  Text(
                     estacionamento.email,
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w600),
-                  ),
+                  ), */
                   Text(
                     estacionamento.fone,
                     style: const TextStyle(
