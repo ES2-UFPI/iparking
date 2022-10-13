@@ -34,9 +34,16 @@ class RotasSolicitacoes {
 
   Future<SolicitacoesEntity> solicitacaoEspecifico(String id) async {
     final response =
-        await http.request(url: base_url + 'parking/${id}', method: 'get');
+        await http.request(url: base_url + 'ticket/${id}', method: 'get');
 
     return SolicitacoesModel.fromJson(response).toEntity();
+  }
+
+  Future<SolicitacoesEntity> fecharSolicitacao(String id) async {
+    final response =
+        await http.request(url: base_url + 'ticket/${id}', method: 'put');
+
+    return SolicitacoesModel.fromJson(response['ticket']).toEntity();
   }
 }
 
@@ -46,7 +53,7 @@ class SolicitacaoParams {
   SolicitacaoParams({required this.parkingId});
 
   Map<String, dynamic> toJson() => {
-        "user_id": "2d376085-81a2-42a3-80a4-ab06dcf8dbb5",
+        "user_id": "5b79158a-19b6-4266-adae-0341fc2b3923",
         "parking_id": parkingId,
       };
 }

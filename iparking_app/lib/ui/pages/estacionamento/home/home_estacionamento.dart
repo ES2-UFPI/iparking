@@ -22,11 +22,7 @@ class HomeEstacionamentoPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Card(
-              child: Text("data"),
-            )
-          ],
+          children: [],
         ),
       ),
     );

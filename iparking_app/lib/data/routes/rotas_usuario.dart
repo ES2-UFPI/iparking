@@ -22,7 +22,7 @@ class RotasUsuario {
   Future<UsuarioEntity> pegarUsuarioEspecifico(String id) async {
     try {
       final response =
-          await http.request(url: base_url + 'parking/${id}', method: 'get');
+          await http.request(url: base_url + 'users/${id}', method: 'get');
 
       return UsuariosModel.fromJson(response).toEntity();
     } catch (error) {

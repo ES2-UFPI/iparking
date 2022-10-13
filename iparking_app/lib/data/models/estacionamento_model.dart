@@ -2,34 +2,34 @@ import '../entities/entities.dart';
 
 class EstacionamentoModel {
   final String id;
+  final String managerId;
   final String nome;
   final String image;
-  final String email;
   final String fone;
   final String latitude;
-  final String longitude;
   final int parkingSpaces;
+  final String longitude;
   final double precoPrimeiraHora;
   final double precoAdicionalHora;
 
   EstacionamentoModel(
       {required this.id,
       required this.nome,
+      required this.managerId,
       required this.image,
-      required this.email,
       required this.fone,
       required this.latitude,
       required this.longitude,
-      required this.parkingSpaces,
       required this.precoPrimeiraHora,
+      required this.parkingSpaces,
       required this.precoAdicionalHora});
 
   factory EstacionamentoModel.fromJson(Map<String, dynamic> json) {
     return EstacionamentoModel(
         id: json['id'],
         nome: json['name'],
+        managerId: json['manager_id'],
         image: json['image_url'],
-        email: json['mail'],
         fone: json['phone'],
         parkingSpaces: json["parking_spaces"],
         latitude: json['latitude'],
@@ -41,12 +41,12 @@ class EstacionamentoModel {
   EstacionamentoEntity toEntity() => EstacionamentoEntity(
       id: id,
       nome: nome,
+      managerId: managerId,
       image: image,
-      email: email,
       fone: fone,
       latitude: latitude,
       longitude: longitude,
-      parkingSpaces: parkingSpaces,
       precoPrimeiraHora: precoPrimeiraHora,
+      parkingSpaces: parkingSpaces,
       precoAdicionalHora: precoAdicionalHora);
 }

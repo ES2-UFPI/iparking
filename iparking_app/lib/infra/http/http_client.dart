@@ -22,24 +22,23 @@ class HttpAdapter {
     final jsonBody = body != null ? jsonEncode(body) : null;
     var response = Response('', 500);
     Future<Response>? futureResponse;
-    try {
-      if (method == 'post') {
-        futureResponse = client.post(Uri.parse(url),
-            headers: defaultHeaders, body: jsonBody);
-      } else if (method == 'get') {
-        futureResponse = client.get(Uri.parse(url), headers: defaultHeaders);
-      } else if (method == 'put') {
-        futureResponse =
-            client.put(Uri.parse(url), headers: defaultHeaders, body: jsonBody);
-      } else if (method == 'delete') {
-        futureResponse = client.delete(Uri.parse(url), headers: defaultHeaders);
-      }
-      if (futureResponse != null) {
-        response = await futureResponse.timeout(const Duration(seconds: 10));
-      }
-    } catch (error) {
-      throw HttpError.unprocessableEntity;
+    print(url);
+    if (method == 'post') {
+      futureResponse =
+          client.post(Uri.parse(url), headers: defaultHeaders, body: jsonBody);
+    } else if (method == 'get') {
+      print("asdwdawda");
+      futureResponse = client.get(Uri.parse(url), headers: defaultHeaders);
+    } else if (method == 'put') {
+      futureResponse =
+          client.put(Uri.parse(url), headers: defaultHeaders, body: jsonBody);
+    } else if (method == 'delete') {
+      futureResponse = client.delete(Uri.parse(url), headers: defaultHeaders);
     }
+    if (futureResponse != null) {
+      response = await futureResponse.timeout(const Duration(seconds: 10));
+    }
+
     return _handleResponse(response);
   }
 
