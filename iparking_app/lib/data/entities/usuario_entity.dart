@@ -4,7 +4,7 @@ class UsuarioEntity {
   String? id;
   String? nome;
   String? email;
-  List<EstacionamentoEntity?> estacionamentos;
+  List<EstacionamentoEntity?>? estacionamentos;
 
   UsuarioEntity(
       {required this.id,

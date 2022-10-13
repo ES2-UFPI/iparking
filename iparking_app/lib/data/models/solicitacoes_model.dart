@@ -23,7 +23,7 @@ class SolicitacoesModel {
         estacionamento: json['parking_id'],
         tempoInicio: json['time_checkin'],
         tempoFim: json['time_checkout'],
-        price: json['price']);
+        price: json['price'].toString());
   }
 
   SolicitacoesEntity toEntity() => SolicitacoesEntity(
