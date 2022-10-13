@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'ui/pages/pages.dart';
@@ -24,6 +23,9 @@ class MyApp extends StatelessWidget {
             name: "/estacionamento/home",
             page: () => const HomeEstacionamentoPage()),
         GetPage(name: "/estacionamento/qrscan", page: () => const QRViewPage()),
+        GetPage(
+            name: "/estacionamento/tickets",
+            page: () => const AllTicketsPage()),
       ],
     );
   }
