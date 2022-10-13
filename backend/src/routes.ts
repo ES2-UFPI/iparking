@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Router } from "express";
 const routes = Router()
 
-import {CreateParkingController} from "./controllers/Parking/CreateParkingController";
+import { CreateParkingController } from "./controllers/Parking/CreateParkingController";
 import { DeleteParkingController } from "./controllers/Parking/DeleteParkingController";
 import { GetParkingController } from "./controllers/Parking/GetParkingController";
 import { UpdateParkingController } from "./controllers/Parking/UpdateParkingController";
@@ -14,6 +14,7 @@ import { GetOneTicketController } from "./controllers/Ticket/GetOneTicketControl
 import { GetTicketController } from "./controllers/Ticket/GetTicketController";
 import { CreateUserController } from "./controllers/User/CreateUserController";
 import { UpdateUserController } from "./controllers/User/UpdateUserController";
+import { RelatorioTicketController } from "./controllers/Relatorios/RelatorioTicketController";
 
 routes.get("/",(req: Request, res: Response) => {
     return res.json({ message: "Iparking API, for more info please access https://github.com/ES2-UFPI/iparking" })
@@ -31,6 +32,7 @@ routes.post("/ticket", new CreateTicketController().handle);
 routes.put("/ticket/:id", new CloseTicketController().handle);
 routes.delete("/ticket/:id", new DeleteTicketController().handle);
 
+routes.get("/relatorios/ticket/:id", new RelatorioTicketController().handle)
 
 routes.post("/users", new CreateUserController().handle)
 routes.put("/users/:id", new UpdateUserController().handle)
