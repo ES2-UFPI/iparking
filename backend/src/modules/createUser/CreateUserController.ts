@@ -8,6 +8,7 @@ class CreateUserController {
     const { name, mail, password } = request.body;
     const user = await this.createUser.execute({ name, mail, password });
 
+     if (user instanceof Error)  return response.status(400).json({ message: user.message });
     return response.json(user);
   }
 }
