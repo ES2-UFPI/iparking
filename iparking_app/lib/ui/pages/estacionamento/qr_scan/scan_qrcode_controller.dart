@@ -7,7 +7,6 @@ import 'components/components.dart';
 class ScarQrCodeScanController extends GetxController {
   final ticketCurrent = Rx<String?>(null);
   RotasSolicitacoes rotasSolicitacoes = RotasSolicitacoes();
-  RotasEstacionamento estacionamento = RotasEstacionamento();
   RotasUsuario _rotasUsuario = RotasUsuario();
 
   loadTicket(String? value) async {
