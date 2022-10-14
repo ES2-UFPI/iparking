@@ -26,6 +26,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/estacionamento/tickets",
             page: () => const AllTicketsPage()),
+        GetPage(
+            name: "/estacionamento/update",
+            page: () => const UpdateVagasPage()),
       ],
     );
   }

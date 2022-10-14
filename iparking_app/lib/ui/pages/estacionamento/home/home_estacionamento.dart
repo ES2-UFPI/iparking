@@ -32,15 +32,35 @@ class HomeEstacionamentoPage extends StatelessWidget {
       body: Builder(builder: (context) {
         controller.carregaRelatorio();
         return SingleChildScrollView(
-          child: Column(
-            children: [
-              GestureDetector(
-                onTap: (() => Get.toNamed("/estacionamento/tickets")),
-                child: CurrentData(
-                  controler: controller,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: (() => Get.toNamed("/estacionamento/tickets")),
+                  child: CurrentData(
+                    controler: controller,
+                  ),
                 ),
-              )
-            ],
+                SizedBox(height: 12),
+                Text("Opções",
+                    style:
+                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                SizedBox(height: 12),
+                GestureDetector(
+                  onTap: () => Get.toNamed("/estacionamento/update"),
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [Icon(Icons.plus_one), Text("Vagas")],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         );
       }),

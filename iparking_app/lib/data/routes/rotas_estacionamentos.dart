@@ -12,13 +12,6 @@ class RotasEstacionamento {
     final response =
         await http.request(url: base_url + 'parking', method: 'get');
 
-    /* final response = await Future.delayed(
-        Duration(milliseconds: 200),
-        () {
-          return mockListarEstacionamento();
-        },
-      ); */
-
     return response
         .map<EstacionamentoEntity>(
             (e) => EstacionamentoModel.fromJson(e).toEntity())
@@ -38,10 +31,21 @@ class RotasEstacionamento {
     }
   }
 
-  Future<EstacionamentoEntity> estacionametoEspecifico(String id) async {
+  Future<void> updateVagas(String id, int vagas) async {
+    try {
+      await http.request(
+          url: base_url + 'parking/vagas/$id',
+          method: 'post',
+          body: {"parking_spaces": vagas});
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<EstacionamentoEntity> estacionamentoEspecifico(String id) async {
     try {
       final response =
-          await http.request(url: base_url + 'parking/${id}', method: 'get');
+          await http.request(url: base_url + 'parking/$id', method: 'get');
 
       return EstacionamentoModel.fromJson(response).toEntity();
     } catch (error) {
