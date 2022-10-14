@@ -22,6 +22,21 @@ class RotasSolicitacoes {
     }
   }
 
+  Future<List<SolicitacoesEntity>> listarSolicitacoesEstacionamento(
+      String id) async {
+    try {
+      final response = await http.request(
+          url: base_url + 'ticket/parking/$id', method: 'get');
+
+      return response
+          .map<SolicitacoesEntity>(
+              (e) => SolicitacoesModel.fromJson(e).toEntity())
+          .toList();
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   Future<SolicitacoesEntity> cadastrarSolicitacao(
       SolicitacaoParams params) async {
     final body = params.toJson();
